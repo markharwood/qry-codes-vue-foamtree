@@ -1,0 +1,48 @@
+{
+  "name": "@andorsearch/qry-codes-vue-foamtree",
+  "version": "0.5.0",
+  "description": "Vue components for rendering QRy code clusters using FoamTree ",
+  "main": "dist/qry-codes-vue-foamtree.cjs.js",
+  "module": "dist/qry-codes-vue-foamtree.es.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "dist/style.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "prepare": "vite build && npm run docs",
+    "docs": "npx vue-docgen"
+  },
+  "dependencies": {
+    "@andorsearch/qry-codes-vue": "^0.5.3",
+    "@carrotsearch/foamtree": "^3.5.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vue-docgen-cli": "^4.79.0",
+    "vue-tsc": "^1.8.22"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markharwood/qry-codes-vue-foamtree.git"
+  },
+  "keywords": [
+    "vue",
+    "component",
+    "qry-codes",
+    "vectors",
+    "clustering"
+  ],
+  "author": "Mark Harwood",
+  "license": "Apache-2.0"
+}
