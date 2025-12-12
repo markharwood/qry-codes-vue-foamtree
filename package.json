@@ -1,7 +1,7 @@
 {
   "name": "@andorsearch/qry-codes-vue-foamtree",
   "version": "0.5.1",
-  "description": "Vue components for rendering QRy code clusters using FoamTree ",
+  "description": "Vue component for rendering QRy code clusters using FoamTree ",
   "main": "dist/qry-codes-vue-foamtree.cjs.js",
   "module": "dist/qry-codes-vue-foamtree.es.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,7 @@
     "docs": "npx vue-docgen"
   },
   "dependencies": {
-    "@andorsearch/qry-codes-vue": "^0.5.3",
+    "@andorsearch/qry-codes-vue": "^0.5.4",
     "@carrotsearch/foamtree": "^3.5.7"
   },
   "devDependencies": {
