@@ -15,10 +15,10 @@
 
 ## Events
 
-| Event name            | Properties | Description                                                           |
-| --------------------- | ---------- | --------------------------------------------------------------------- |
-| similiarityGraphBuilt |            | Called whenever the similarity graph is first built.                  |
-| clusterClicked        |            | Called when a cluster on the screen is clicked and brought into focus |
+| Event name           | Properties | Description                                                           |
+| -------------------- | ---------- | --------------------------------------------------------------------- |
+| similarityGraphBuilt |            | Called whenever the similarity graph is first built.                  |
+| clusterClicked       |            | Called when a cluster on the screen is clicked and brought into focus |
 
 ## Slots
 

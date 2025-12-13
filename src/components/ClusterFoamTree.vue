@@ -20,7 +20,7 @@ const emit = defineEmits<{
     /**
      * Called whenever the similarity graph is first built.
      */
-    similiarityGraphBuilt: [simGraph: SimilarityGraph];
+    similarityGraphBuilt: [simGraph: SimilarityGraph];
     /**
      * Called when a cluster on the screen is clicked and brought into focus
      */
@@ -109,7 +109,7 @@ function clusterResults() {
         });
         minFoundSim.value = Math.max(props.minSliderSim(), min);
         maxFoundSim.value = max;
-        emit("similiarityGraphBuilt", simGraph);
+        emit("similarityGraphBuilt", simGraph);
     }
 
     const unsortedClusters: Cluster[] = [];
