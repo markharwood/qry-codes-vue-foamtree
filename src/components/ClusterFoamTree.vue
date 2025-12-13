@@ -24,7 +24,7 @@ const emit = defineEmits<{
     /**
      * Called when a cluster on the screen is clicked and brought into focus
      */
-    clusterClicked: [clusterIndex: number, label: string, vectorIndices: number[]];
+    clusterClicked: [clusterIndex: number, label: string, vectorIndices: number[], minSim:number];
 }>();
 
 const props = defineProps({
@@ -252,14 +252,16 @@ function renderFoamTree() {
                     "clusterClicked",
                     group.clusterIndex,
                     group.label,
-                    group.groups.map((g: any) => g.vectorIndex)
+                    group.groups.map((g: any) => g.vectorIndex),
+                    sliderSim.value
                 );
             } else {
                 emit(
                     "clusterClicked",
                     group.clusterIndex,
                     group.label,
-                    [group.docID]
+                    [group.docID],
+                    sliderSim.value
                 );
             }
         });
