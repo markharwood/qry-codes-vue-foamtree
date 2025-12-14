@@ -5,8 +5,8 @@ import { ClusterSlider } from "@andorsearch/qry-codes-vue";
 import {
     SimilarityGraph,
     buildSimilarityGraph,
-    clusterByThreshold,
-    mergeVectors
+    mergeVectors,
+    clusterWithCohesion
 } from "@andorsearch/qry-codes";
 
 export interface Cluster {
@@ -80,7 +80,15 @@ const props = defineProps({
     minSliderSim: {
         type: Function,
         required: false,
-        default: (simGraph: SimilarityGraph) => 0.6
+        default: (_simGraph: SimilarityGraph) => 0.6
+    },
+    /**
+      * Function called to cluster vectors
+    */
+    clusteringAlgo: {
+        type: Function as PropType<(simGraph: SimilarityGraph, similarityThreshold:number) => number[][]>,
+        required: false,
+        default: clusterWithCohesion
     }
 });
 
@@ -113,8 +121,11 @@ function clusterResults() {
     }
 
     const unsortedClusters: Cluster[] = [];
-    let clusteredIDs = clusterByThreshold(simGraph, sliderSim.value);
-    let tooSmallClusters = clusteredIDs.filter(c => c.length < props.minDocsPerCluster);
+    // let clusteredIDs = clusterByThreshold(simGraph, sliderSim.value);
+    // let clusteredIDs = clusterByThresholdRobust(simGraph, sliderSim.value);
+    let clusteredIDs = props.clusteringAlgo(simGraph, sliderSim.value)
+    
+    // let tooSmallClusters = clusteredIDs.filter(c => c.length < props.minDocsPerCluster);
     clusteredIDs = clusteredIDs.filter(c => c.length >= props.minDocsPerCluster);
     clusteredIDs.forEach((clusterIndices, clusterIndex) => {
         const clusterEmbeddings = clusterIndices.map(i => props.vectors[i]);
@@ -139,7 +150,8 @@ function buildFoamData() {
                 id: `cluster-${i}`,
                 label: props.clusterLabeller(cluster),
                 // Make single-doc clusters significantly smaller than clustered docs
-                weight: cluster.indices.length == 1 ? 0.1 : cluster.indices.length,
+                weight: cluster.indices.length == 1 ? 0.1 : Math.sqrt(cluster.indices.length),
+                
                 clusterIndex: i
             };
             if (cluster.indices.length > 1) {

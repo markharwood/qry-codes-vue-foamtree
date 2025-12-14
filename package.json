@@ -18,7 +18,7 @@
     "docs": "npx vue-docgen"
   },
   "dependencies": {
-    "@andorsearch/qry-codes-vue": "^0.5.4",
+    "@andorsearch/qry-codes-vue": "^0.6.0",
     "@carrotsearch/foamtree": "^3.5.7"
   },
   "devDependencies": {
