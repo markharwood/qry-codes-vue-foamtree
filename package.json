@@ -1,6 +1,6 @@
 {
   "name": "@andorsearch/qry-codes-vue-foamtree",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Vue component for rendering QRy code clusters using FoamTree ",
   "main": "dist/qry-codes-vue-foamtree.cjs.js",
   "module": "dist/qry-codes-vue-foamtree.es.js",
