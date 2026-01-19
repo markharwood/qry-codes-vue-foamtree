@@ -48,9 +48,8 @@ onMounted(() => {
 });
 ```
 Once loaded, the data can be passed to the ClusterFoamTree component for clustering and visualization.
-Clusters are listed horizontally and within each cluster a number of vectors are listed vertically
-where typically applications will show original text and/or images that were originally used to 
-create the vectors rather than the raw vector data.     
+Clusters of related articles are grouped using a form of Voronoi map. When a cluster is clicked it is 
+given a highlighted focus and applications can show detailed document information by handling the clusterClicked event.
 
 
 ```typescript
